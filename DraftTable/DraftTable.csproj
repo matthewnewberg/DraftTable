@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug32</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A289574-32BA-4451-8D22-D2A51B406A1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DraftTable</RootNamespace>
+    <AssemblyName>DraftTable</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RhinoCommon">
+      <HintPath>C:\Program Files\Rhino WIP\System\RhinoCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DraftTableCommand.cs" />
+    <Compile Include="DraftTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DraftTableForm.Designer.cs">
+      <DependentUpon>DraftTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DraftTablePlugIn.cs" />
+    <Compile Include="FileUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RevertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevertForm.Designer.cs">
+      <DependentUpon>RevertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thumbnail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Thumbnail.Designer.cs">
+      <DependentUpon>Thumbnail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThumbnailPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThumbnailPanel.Designer.cs">
+      <DependentUpon>ThumbnailPanel.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DraftTableForm.resx">
+      <DependentUpon>DraftTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevertForm.resx">
+      <DependentUpon>RevertForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thumbnail.resx">
+      <DependentUpon>Thumbnail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Add Folder-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ZIP-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Add File-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Add File-261.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_paste_103675.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_content-paste_326599.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g68296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g67764.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g66092.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g66092_p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g63908.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g72238.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g66092_p_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g66092_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g72314.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g67764_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g69248.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g63908_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g64672.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\g69610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d25275432767f227c08fb2aee995021c_32_e62ae7111f045930efb7d650efac2087.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_image_small.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).rhp"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\Program Files (x86)\Rhinoceros 5\System\Rhino4.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <StartProgram>c:\Program Files\Rhinoceros 5 (64-bit)\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+</Project>
