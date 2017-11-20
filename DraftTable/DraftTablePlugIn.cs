@@ -18,64 +18,6 @@ namespace DraftTable
     ///</summary>
     public class DraftTablePlugIn : Rhino.PlugIns.PlugIn
     {
-        
-        public void CheckUpdate()
-        {
-            try
-            {
-                string urlAddress = "http://mattnewberg.info/drafttableupdate/";
-
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    Stream receiveStream = response.GetResponseStream();
-                    StreamReader readStream = null;
-
-                    if (response.CharacterSet == null)
-                    {
-                        readStream = new StreamReader(receiveStream);
-                    }
-                    else
-                    {
-                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
-                    }
-
-                    string data = readStream.ReadToEnd();
-
-                    //Version#0.0.0#EndVersion
-                    //UpdateURL#http://mattnewberg.info/drafttable/#EndUpdateURL
-
-                    int startPos = data.LastIndexOf("Version#") + "Version#".Length;
-                    int endPos = data.LastIndexOf("#EndVersion");
-
-                    string version = data.Substring(startPos, endPos - startPos);
-
-                    int versionInt = 0;
-
-                    int.TryParse(version, out versionInt);
-
-                    int startPosUrl = data.LastIndexOf("UpdateURL#") + "UpdateURL#".Length;
-                    int endPosUrl = data.LastIndexOf("#EndUpdateURL");
-
-                    string url = data.Substring(startPosUrl, endPosUrl - startPosUrl);
-
-                    if (versionInt > 000002)
-                        System.Diagnostics.Process.Start(url);
-
-                    response.Close();
-                    readStream.Close();
-                }
-            }
-            catch (Exception)
-            {
-
-
-            }
-
-        }
-
         public IdleWatcher idleWatcher;
 
         public class IdleWatcher : Rhino.UI.MouseCallback
@@ -107,8 +49,6 @@ namespace DraftTable
 
             idleWatcher = new IdleWatcher();
             idleWatcher.Enabled = true;
-
-            new Task(CheckUpdate).Start();
         }
 
         ///<summary>Gets the only instance of the DraftTablePlugIn plug-in.</summary>
